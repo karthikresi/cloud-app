@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>My Cloud Web App</title>
+
+<style>
+
+body{
+font-family: Arial;
+margin:0;
+background:linear-gradient(120deg,#4facfe,#00f2fe);
+color:#333;
+}
+
+/* Header */
+
+header{
+background:white;
+padding:20px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+h1{
+margin:0;
+}
+
+/* Container */
+
+.container{
+width:80%;
+margin:auto;
+margin-top:30px;
+}
+
+/* Cards */
+
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Buttons */
+
+button{
+padding:10px 20px;
+border:none;
+background:#4facfe;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0077ff;
+}
+
+/* Todo list */
+
+li{
+margin:10px 0;
+}
+
+input{
+padding:10px;
+margin:5px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>My Cloud Application</h1>
+<p>Deployed on Cloud</p>
+</header>
+
+<div class="container">
+
+<!-- Counter -->
+
+<div class="card">
+<h2>Interactive Counter</h2>
+
+<h3 id="count">0</h3>
+
+<button onclick="increase()">Increase</button>
+<button onclick="decrease()">Decrease</button>
+
+</div>
+
+<!-- Todo List -->
+
+<div class="card">
+
+<h2>Todo List</h2>
+
+<input id="taskInput" placeholder="Enter task">
+
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList"></ul>
+
+</div>
+
+<!-- Contact Form -->
+
+<div class="card">
+
+<h2>Contact Form</h2>
+
+<input placeholder="Your Name"><br>
+<input placeholder="Email"><br>
+<textarea placeholder="Message"></textarea><br>
+
+<button onclick="submitForm()">Send</button>
+
+<p id="msg"></p>
+
+</div>
+
+</div>
+
+<footer>
+<p>Cloud App Demo</p>
+</footer>
+
+<script>
+
+/* Counter */
+
+let count=0;
+
+function increase(){
+count++;
+document.getElementById("count").innerText=count;
+}
+
+function decrease(){
+count--;
+document.getElementById("count").innerText=count;
+}
+
+/* Todo List */
+
+function addTask(){
+
+let input=document.getElementById("taskInput");
+
+let task=input.value;
+
+if(task==="") return;
+
+let li=document.createElement("li");
+
+li.innerText=task;
+
+document.getElementById("taskList").appendChild(li);
+
+input.value="";
+
+}
+
+/* Form */
+
+function submitForm(){
+
+document.getElementById("msg").innerText="Message Sent Successfully!";
+
+}
+
+</script>
+
+</body>
+</html>
